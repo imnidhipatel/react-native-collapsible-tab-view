@@ -1,3 +1,7 @@
+// for react-native-collapsible-tab-view
+
+// replace the MaterialTabBar> Indicator.tsx as below
+
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import Animated, {
@@ -42,9 +46,10 @@ const Indicator: React.FC<IndicatorProps> = ({
         ? interpolate(
             indexDecimal.value,
             itemsLayout.map((_, i) => i),
-            itemsLayout.map((v) => v.width)
+            itemsLayout.map((v) => v.width - 20) //custom style
           )
         : itemsLayout[0]?.width
+
 
     return {
       transform,
@@ -65,6 +70,7 @@ const Indicator: React.FC<IndicatorProps> = ({
 
 const styles = StyleSheet.create({
   indicator: {
+    marginLeft: 10, //custom style
     height: 2,
     backgroundColor: '#2196f3',
     position: 'absolute',
